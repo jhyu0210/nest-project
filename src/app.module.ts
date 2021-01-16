@@ -8,7 +8,7 @@ import { CatsModule } from './cats/cats.module';
   imports: [  
     CatsModule,
     GraphQLModule.forRoot({
-    autoSchemaFile: 'schema.gql',
+    autoSchemaFile: 'src/schema.gql',
     sortSchema: true,
   })],
   controllers: [AppController],
