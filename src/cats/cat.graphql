@@ -1,0 +1,11 @@
+type Cat {
+  id: Int
+  name: String
+  age: Int
+  breed: String
+}
+
+type Query {
+  cats: [Cat]
+  cat(id: ID!): Cat
+}
