@@ -14,5 +14,5 @@ export class Cat {
   @Prop()
   breed: string;
 }
-
+console.log(`CAT.NAME::: ${Cat.name}`); // Cat
 export const CatSchema = SchemaFactory.createForClass(Cat);
