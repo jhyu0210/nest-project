@@ -7,10 +7,10 @@ import { CatDto } from './dto/create-cat.dto';
 export class CatsResolver {
   constructor(private readonly catsService: CatsService) {}
 
-  // @Query(() => String)
-  // async hello() {
-  //   return 'hello';
-  // }
+  @Query(() => String)
+  async hello() {
+    return 'hello';
+  }
 
   @Query()
   async cats() {

@@ -16,4 +16,5 @@ export interface Cat {
 export interface IQuery {
     cats(): Cat[] | Promise<Cat[]>;
     cat(id: string): Cat | Promise<Cat>;
+    hello(): string | Promise<string>;
 }
