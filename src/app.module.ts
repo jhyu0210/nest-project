@@ -10,8 +10,9 @@ import { CatsModule } from './cats/cats.module';
   imports: [
     CatsModule,
     GraphQLModule.forRoot({
-      typePaths : ['./**/*.graphql'],
-      definitions: {path: join(process.cwd(), 'src/graphql.ts')},
+      autoSchemaFile: join(process.cwd(), 'src/scehma.gql'),
+      // typePaths : ['./**/*.graphql'],
+      // definitions: {path: join(process.cwd(), 'src/graphql.ts')},
     }),
     MongooseModule.forRoot('mongodb://localhost/nest'),
   ],

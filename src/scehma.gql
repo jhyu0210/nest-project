@@ -1,0 +1,25 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CatDto {
+  id: ID!
+  name: String!
+  age: Int!
+  breed: String!
+}
+
+type Query {
+  hello: String!
+  cats: [CatDto!]!
+}
+
+type Mutation {
+  createCat(input: CatInput!): CatDto!
+}
+
+input CatInput {
+  name: String!
+  age: Int!
+  breed: String!
+}

@@ -1,7 +1,8 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { CatsService } from './cats.service';
 import { CatDto } from './dto/create-cat.dto';
-// import { CatInput } from './inputs/cat.input';
+// import { Cat } from '../graphql';
+import { CatInput } from './inputs/cat.input';
 
 @Resolver()
 export class CatsResolver {
@@ -12,13 +13,13 @@ export class CatsResolver {
     return 'hello';
   }
 
-  @Query()
+  @Query(()=>[CatDto])
   async cats() {
     return this.catsService.findAll();
   }
 
-  // @Mutation(() => CatDto)
-  // async createCat(@Args('input') input: CatInput) {
-  //   return this.catsService.create(input);
-  // }
+  @Mutation(()=> CatDto)
+  async createCat(@Args('input') input: CatInput) {
+    return this.catsService.create(input);
+  }
 }
