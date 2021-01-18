@@ -3,7 +3,7 @@ import { LaunchModel } from "./dto/launch.model";
 import { LaunchService } from "./launch.service";
 
 
-@Resolver('Launch')
+@Resolver('Launch') //name of type in launch.graphql 
 export class LaunchResolver{
   constructor(
     private launchService: LaunchService,

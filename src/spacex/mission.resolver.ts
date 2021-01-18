@@ -2,7 +2,7 @@ import { Resolver,Args, ResolveField, Parent } from "@nestjs/graphql";
 import {PatchSize} from '../graphql';
 
 
-@Resolver('Mission')
+@Resolver('Mission') // name of type in launch.graphql
 export class MissionResolver{
   @ResolveField()
   missionPatch(
