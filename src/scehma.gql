@@ -9,9 +9,15 @@ type CatDto {
   breed: String!
 }
 
+type LaunchDto {
+  id: ID!
+  site: String!
+}
+
 type Query {
   hello: String!
   cats: [CatDto!]!
+  launches: [LaunchDto!]!
 }
 
 type Mutation {

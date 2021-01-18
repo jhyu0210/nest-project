@@ -12,7 +12,7 @@
 
 import { InputType,Field, Int} from '@nestjs/graphql';
 
-@InputType()
+@InputType() //input type!!!!
 export class CatInput {
   @Field()
   readonly name: string;

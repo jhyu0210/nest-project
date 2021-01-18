@@ -1,6 +1,6 @@
 import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
 
-@ObjectType()
+@ObjectType() //object type!!!!
 export class CatDto {
   @Field(()=>ID)
     id: string;
