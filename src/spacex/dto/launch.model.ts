@@ -1,6 +1,6 @@
 import { Launch } from "../../graphql";
 
-export interface SpacexLaunch {
+export interface SpacexLaunch{
   flight_number:           number;
   mission_name:            string;
   mission_id:              any[];
