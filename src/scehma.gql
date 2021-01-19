@@ -26,6 +26,7 @@ type Query {
   hello: String!
   cats: [CatDto!]!
   findUsers: [UserDto!]!
+  me: UserDto
   findUser(id: String!): UserDto!
 }
 

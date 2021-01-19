@@ -1,4 +1,6 @@
-import { Args, Mutation, Resolver, Query } from '@nestjs/graphql';
+import { UseGuards } from '@nestjs/common';
+import { Args, Mutation, Resolver, Query, Context } from '@nestjs/graphql';
+import { AuthGuard } from './auth.guard';
 import { UserDto } from './dto/user.dto';
 import { UserInput } from './inputs/user.input';
 import { UserService } from './user.service';
@@ -15,7 +17,12 @@ export class UserResolver {
   async findUsers() {
     return this.userService.findAllUsers();
   }
-
+  @Query(() => UserDto,{nullable:true})
+  @UseGuards(new AuthGuard())
+    me(@Context('user') user: UserDto) {
+      console.log('>>>user::',user);
+    return user;
+  }
   @Query(() => UserDto)
   async findUser(@Args('id') id: string ) {
     return this.userService.findUser(id);
