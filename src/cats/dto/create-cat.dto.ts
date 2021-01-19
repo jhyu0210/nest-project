@@ -1,8 +1,8 @@
-import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
+import { ObjectType, Field, Int, ID, registerEnumType } from '@nestjs/graphql';
 
-@ObjectType() //object type!!!!
+@ObjectType() // object type!!!!
 export class CatDto {
-  @Field(()=>ID)
+  @Field(() => ID)
     id: string;
   @Field()
     name: string;
@@ -10,7 +10,21 @@ export class CatDto {
     age: number;
   @Field()
     breed: string;
+
+  @Field(type => CatColor, { nullable: true })
+    mewColor: CatColor;
 }
+
+enum CatColor {
+  RED,
+  GREEN,
+  BLUE,
+}
+
+registerEnumType(CatColor, {
+  name: 'CatColor',
+});
+
 // import { Min } from 'class-validator';
 // import { CreateCatInput } from '../../graphql';
 
@@ -18,8 +32,6 @@ export class CatDto {
 //   @Min(1)
 //   age: number;
 // }
-
-  
 // export class CatDto {
 //   readonly name: string;
 //   readonly age: number;

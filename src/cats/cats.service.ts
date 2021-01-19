@@ -10,7 +10,7 @@ import { CatInput } from './inputs/cat.input';
 @Injectable()
 export class CatsService {
   constructor(@InjectModel(Cat.name) private readonly catModel: Model<CatDocument>) {}
-  
+
   async create(createCatDto: CatInput): Promise<Cat> {
     const createdCat = new this.catModel(createCatDto);
     return await createdCat.save();
