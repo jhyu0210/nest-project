@@ -9,6 +9,11 @@ type CatDto {
   breed: String!
 }
 
+type UserDto {
+  id: ID!
+  email: String!
+}
+
 type Query {
   hello: String!
   cats: [CatDto!]!
@@ -16,10 +21,15 @@ type Query {
 
 type Mutation {
   createCat(input: CatInput!): CatDto!
+  createUser(input: UserInput!): UserDto!
 }
 
 input CatInput {
   name: String!
   age: Int!
   breed: String!
+}
+
+input UserInput {
+  email: String!
 }
