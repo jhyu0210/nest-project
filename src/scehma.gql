@@ -12,11 +12,13 @@ type CatDto {
 type UserDto {
   id: ID!
   email: String!
+  username: String
 }
 
 type Query {
   hello: String!
   cats: [CatDto!]!
+  findUsers: [UserDto!]!
 }
 
 type Mutation {
@@ -32,4 +34,5 @@ input CatInput {
 
 input UserInput {
   email: String!
+  username: String
 }

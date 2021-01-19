@@ -5,7 +5,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Cat, CatDocument } from './cat.schema';
 // import { CatInput } from './inputs/cat.input';
 // import { CatDto } from './dto/create-cat.dto';
-import { CatInput } from '../inputs/cat.input';
+import { CatInput } from './inputs/cat.input';
 
 @Injectable()
 export class CatsService {
