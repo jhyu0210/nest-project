@@ -1,11 +1,18 @@
 import { Module } from '@nestjs/common';
 import { join } from 'path';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-// import { LaunchModule } from './spacex/launch.module';
+import { DatabaseConnectionService } from './database-connection.service';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [],
+  imports: [
+    TypeOrmModule.forRootAsync({
+      useClass: DatabaseConnectionService,
+    }),
+    AuthModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
