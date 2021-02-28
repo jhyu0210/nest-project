@@ -29,15 +29,4 @@ export class AuthController {
   login(@Body(ValidationPipe) credentials: LoginDTO) {
     return this.authService.login(credentials);
   }
-  // @UseGuards(LocalAuthGuard)
-  // @Post('login')
-  // async login(@Request() req) {
-  //   console.log(req);
-  //   return this.authService.login(req.user);
-  // }
-
-  // @Get('token')
-  // async createToken(): Promise<any> {
-  //   return await this.authService.createToken();
-  // }
 }

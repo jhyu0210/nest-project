@@ -14,6 +14,7 @@ import {
   RegisterDTO,
   // UpdateUserDTO,
   AuthResponse,
+  UpdateUserDTO,
 } from 'src/models/user.model';
 
 @Injectable()
@@ -60,6 +61,13 @@ export class AuthService {
     return { ...user.toJSON(), token };
   }
 
+  async updateUser(username: string, data: UpdateUserDTO) {
+    await this.userRepo.update({ username }, data);
+    const user = await this.userRepo.findOne({ where: { username } });
+    const payload = { username };
+    const token = this.jwtService.sign(payload);
+    return { ...user.toJSON(), token };
+  }
   // async updateUser(
   //   username: string,
   //   data: UpdateUserDTO,
