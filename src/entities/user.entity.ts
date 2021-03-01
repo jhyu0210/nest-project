@@ -40,7 +40,7 @@ export class UserEntity extends AbstractEntity {
   followee: UserEntity[];
 
   @OneToMany((type) => ArticleEntity, (article) => article.author)
-  articles: ArticleEntity;
+  articles: ArticleEntity[];
 
   @ManyToMany((type) => ArticleEntity, (article) => article.favoritedBy)
   favorites: ArticleEntity[];
@@ -53,9 +53,7 @@ export class UserEntity extends AbstractEntity {
     this.password = await bcrypt.hash(this.password, 10);
   }
   async comparePassword(attempt: string) {
-    console.log('Attempt password ', attempt);
     const validOrInvalid = await bcrypt.compare(attempt, this.password);
-    console.log('Valid Or Invlaid::: ', validOrInvalid);
     return validOrInvalid;
   }
   toProfile(user?: UserEntity) {
